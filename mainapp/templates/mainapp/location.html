@@ -1,0 +1,16 @@
+{% extends 'mainapp/base.html' %}
+    {% block title %}
+        Create Location
+    {% endblock %}
+    {% block content %}
+        <h3>Create Location</h3>
+        <form method="post" action="/location/" class="form-group">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    {{form.as_p}}
+                    <button type="submit" name="save" class="btn btn-sm rounded-0 btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    {% endblock %}

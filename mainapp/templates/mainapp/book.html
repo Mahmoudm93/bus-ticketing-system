@@ -1,0 +1,87 @@
+{% extends 'mainapp/base.html' %}
+    {% block title %}
+        Book a Ticket
+    {% endblock %}
+    {% block content %}
+        <h3>Book Page</h3>
+        <form method="post" action="/book/" class="form-group">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    {{form.as_p}}
+                    <button type="submit" name="save" class="btn btn-sm rounded-0 btn-primary">Book</button>
+                </div>
+            </div>
+        </form>
+        <table border="4">
+            <tr style="margin: 12">
+                <td>First Name</td>
+                <td>Surname</td>
+                <td>Phone Number</td>
+                <td>EmailAddress</td>
+                <td>Home Address</td>
+                <td>Next of kin Name</td>
+                <td>Next of kin Phone Num</td>
+                <td>Next of kin Address</td>
+            </tr>
+            <hr class="mt-0 mb-4">
+            {% for bl in bl %}
+        
+                <tr>
+                    <td>{{bl.first_name}}</td>
+                    <td>{{bl.sur_name}}</td>
+                    <td>{{bl.phone_num}}</td>
+                    <td>{{bl.email_address}}</td>
+                    <td>{{bl.home_address}}</td>
+                    <td>{{bl.next_kin_name}}</td>
+                    <td>{{bl.next_kin_phone_num}}</td>
+                    <td>{{bl.next_kin_home_address}}</td>
+                </tr>
+            {%  endfor %}
+        </table>
+
+        {% for bl in bl %}
+            <hr class="mt-0 mb-4">
+            <h4>Katsina State Transport Authority</h4>
+            <h4>Kofar Yandaka Batsari Road, Katsina State, Nigeria</h4>
+            <span>Route: {{bl.route}}</span><br>
+            <span>Time and Date: 08:00am, 04/06/2022</span><br>
+            <span>Bus Number: {{bl.bus}}</span><br>
+            <span>Fare: {{bl.fare}}</span><br>
+            <span>Seat number: {{bl.seat_num}}</span><br>
+            <table>
+                <tr>
+                    <td>First Name:</td>
+                    <td>{{bl.first_name}}</td>
+                </tr>
+            </table>
+            <table>
+                <tr><td>Surname:</td><td>{{bl.sur_name}}</td></tr>
+            </table>
+            <table>
+                <tr><td>Phone Number:</td><td>{{bl.phone_num}}</td></tr>
+            </table>
+            <table>
+                <tr><td>EmailAddress:</td><td>{{bl.email_address}}</td></tr>
+            </table>
+            <table>
+                <tr><td>Home Address:</td><td>{{bl.home_address}}</td></tr>
+            </table>
+            <table>
+                <tr><td>Next of kin Name:</td><td>{{bl.next_kin_name}}</td></tr>
+            </table>
+            <table>
+                <tr><td>Next of kin Phone Num:</td><td>{{bl.next_kin_phone_num}}</td></tr>
+            </table>
+            <table>
+                <tr><td>Next of kin Address:</td><td>{{bl.next_kin_home_address}}</td></tr>
+            </table>
+            <button type="submit" name="save" class="btn btn-sm rounded-0 btn-primary">Print</button>
+            <hr class="mt-0 mb-4">
+        {%  endfor %}
+        
+
+        <script type="text/javascript">
+            var btns = Html.QuerySelector("btn");
+        </script>
+    {% endblock %}

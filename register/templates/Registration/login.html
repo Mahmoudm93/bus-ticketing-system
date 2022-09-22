@@ -1,0 +1,18 @@
+{% extends 'mainapp/base2.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+    <form method="post" class="form-group">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+        	<div class="input-group-prepend">
+        		{{form}}
+        		<p>Don't have an account? Register <a href="/register">here</a></p>
+        		<button type="submit" class="btn btn-sm rounded-0 btn-primary">Login</button>
+        	</div>
+        </div>
+    </form>
+{% endblock %}
